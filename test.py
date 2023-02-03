@@ -4,7 +4,6 @@ import torch
 import torch.backends.cudnn as cudnn
 from torchvision.utils import save_image
 from torch.utils.data import DataLoader
-# from src.dataloader import ErasingData
 from src.dataloader import LmdbDataset
 from src.model import SGNet
 
@@ -36,7 +35,6 @@ dataRoot = args.dataRoot
 savePath = args.savePath
 result_mask = savePath + 'MaskOutput/'
 result_straight = savePath + 'StrOuput/'
-#import pdb;pdb.set_trace()
 
 if not os.path.exists(savePath):
     os.makedirs(savePath)
@@ -52,7 +50,6 @@ netG = SGNet(3)
 
 netG.load_state_dict(torch.load(args.pretrained))
 
-#
 if cuda:
     netG = netG.cuda()
 

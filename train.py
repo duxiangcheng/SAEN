@@ -6,7 +6,6 @@ import torch.optim as optim
 import torch.backends.cudnn as cudnn
 from torch.utils.data import DataLoader
 from src.dataloader import LmdbDataset
-# from src.dataloader import ErasingData
 from src.loss import Loss
 from src.extractor import VGG16FeatureExtractor
 from src.model import SGNet
@@ -29,7 +28,6 @@ def main():
     torch.set_num_threads(5)
     config = load_config()
     os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(str(e) for e in config.GPU)
-    # train_data = ErasingData(config.DATA_ROOT, config.INPUT_SIZE, training=True)
     train_data = LmdbDataset(config.DATA_ROOT, config.INPUT_SIZE, training=True)
     train_data_loader = DataLoader(train_data, batch_size=config.BATCH_SIZE, shuffle=True, num_workers=config.NUMOFWORKERS, drop_last=False, pin_memory=True)
     netG = SGNet(3)

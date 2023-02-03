@@ -60,41 +60,6 @@ class devdata(Dataset):
     def __len__(self):
         return len(self.imageFiles)
 
-class ErasingData(Dataset):
-    def __init__(self, dataRoot, loadSize, training=True):
-        super(ErasingData, self).__init__()
-        self.imageFiles = [join (dataRootK, files) for dataRootK, dn, filenames in walk(dataRoot) \
-            for files in filenames if CheckImageFile(files)]
-        self.loadSize = loadSize
-        self.ImgTrans = ImageTransform(loadSize)
-        self.training = training
-    
-    def __getitem__(self, index):
-        img = Image.open(self.imageFiles[index])
-        # mask = Image.open(self.imageFiles[index].replace('all_images','mask'))
-        mask = Image.open(self.imageFiles[index].replace('all_images','Stroke'))
-        gt = Image.open(self.imageFiles[index].replace('all_images','all_labels'))
-        # import pdb;pdb.set_trace()
-        if self.training:
-        # ### for data augmentation
-            all_input = [img, mask, gt]
-            all_input = random_horizontal_flip(all_input)   
-            all_input = random_rotate(all_input)
-            img = all_input[0]
-            mask = all_input[1]
-            gt = all_input[2]
-        ### for data augmentation
-        inputImage = self.ImgTrans(img.convert('RGB'))
-        mask = self.ImgTrans(mask.convert('RGB'))
-        groundTruth = self.ImgTrans(gt.convert('RGB'))
-        path = self.imageFiles[index].split('/')[-1]
-       # import pdb;pdb.set_trace()
-
-        return inputImage, groundTruth, mask, path
-    
-    def __len__(self):
-        return len(self.imageFiles)
-
 class LmdbDataset(Dataset):
     def __init__(self, dataRoot, loadSize, training=True):
         super(LmdbDataset, self).__init__()
