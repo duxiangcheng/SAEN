@@ -1,0 +1,1 @@
+python3 script/create_lmdb_dataset.py --inputPath SCUT-EnsText/train_sets/all_images --gtPath SCUT-EnsText/train_sets/all_labels --maskPath SCUT-EnsText/train_sets/stroke --outputPath SCUT-EnsText/trainlmdb
