@@ -50,6 +50,10 @@ python3 script/create_lmdb_dataset.py --inputPath SCUT-EnsText/test_sets/all_ima
 ```
 python demo.py --pretrained "pretrained_model_path" --imgPath "test_img_path" --savedPath "saved_img_path"
 ```
+for examples:
+```bash
+python demo.py --pretrained pretrained.pth --imgPath examples/1.jpg --savedPath result.jpg
+```
 
 
 ### Training
