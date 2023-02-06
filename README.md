@@ -1,9 +1,11 @@
 # Modeling Stroke Mask for End-to-End Text Erasing
 
-[Paper](https://openaccess.thecvf.com/content/WACV2023/papers/Du_Modeling_Stroke_Mask_for_End-to-End_Text_Erasing_WACV_2023_paper.pdf) | [Project](http://10.5.8.102/dxc/saen.git)
+This repository contains official implementation of Modeling Stroke Mask for End-to-End Text Erasing in WACV 2023, by Xiangcheng Du and Zhao Zhou and Yingbin Zheng and Tianlong Ma and Xingjiao Wu and Cheng Jin.
+
+[Paper](https://openaccess.thecvf.com/content/WACV2023/papers/Du_Modeling_Stroke_Mask_for_End-to-End_Text_Erasing_WACV_2023_paper.pdf) | [Project](https://github.com/duxiangcheng/SAEN)
 
 ### Introduction
-In this paper, we present an end-to-end network that focuses on modeling text stroke masks that provide more accurate locations to compute erased images. The network consists of two stages, i.e., a basic network with stroke generation and a refinement network with stroke awareness. The basic network predicts the text stroke masks and initial erasing results simultaneously. The refinement network receives the masks as supervision to generate natural erased results.
+In this paper, we present an end-to-end network (SAEN) that focuses on modeling text stroke masks that provide more accurate locations to compute erased images. The network consists of two stages, i.e., a basic network with stroke generation and a refinement network with stroke awareness. The basic network predicts the text stroke masks and initial erasing results simultaneously. The refinement network receives the masks as supervision to generate natural erased results.
 
 ![](./imgs/pipline.png)
 
