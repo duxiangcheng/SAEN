@@ -39,7 +39,7 @@ python3 script/create_lmdb_dataset.py --inputPath SCUT-EnsText/test_sets/all_ima
 ```
 
 ### Run demo with pretrained model
-1. Download pretrained model from [here](https://drive.google.com/file/d/1dQcLVYFUPj5g9D0y7UI3O8zXDt0pjgwt/view?usp=share_link)
+1. Download pretrained model from [here](https://drive.google.com/file/d/1LWHUIT58XQZd2FRlUc_VvWJj-n79YGoG/view?usp=share_link)
 2. Run demo.py
 ```
 python demo.py --pretrained "pretrained_model_path" --imgPath "test_img_path" --savedPath "saved_img_path"
