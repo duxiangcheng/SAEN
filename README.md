@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```
 ### Datasets
 The datatset can be access at [SCUT-EnsText](https://github.com/HCIILAB/SCUT-EnsText) or synthetic dataset [SCUT-Syn](https://github.com/HCIILAB/Scene-Text-Removal) for training and testing.
-- 数据目录结构如下：
+- The dataset structure is as follows：
 
   ```text
     SCUT-EnsText
