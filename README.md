@@ -30,13 +30,12 @@ The datatset can be access at [SCUT-EnsText](https://github.com/HCIILAB/SCUT-Ens
          └── all_gts
   ```
 
-- To generate text stroke mask
-```
-python script/generate_stoke.py
-```
-- To generate lmdb dataset
+- To generate trainlmdb and testlmdb dataset
 ```bash
-sh script/create_lmdb.sh
+python3 script/create_lmdb_dataset.py --inputPath SCUT-EnsText/train_sets/all_images --gtPath SCUT-EnsText/train_sets/all_labels --maskPath SCUT-EnsText/train_sets/stroke --outputPath SCUT-EnsText/trainlmdb
+```
+```bash
+python3 script/create_lmdb_dataset.py --inputPath SCUT-EnsText/test_sets/all_images --gtPath SCUT-EnsText/test_sets/all_labels --maskPath SCUT-EnsText/test_sets/stroke --outputPath SCUT-EnsText/testlmdb
 ```
 
 ### Run demo with pretrained model
