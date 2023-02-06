@@ -1,6 +1,7 @@
 import argparse
-import cv2
-import numpy as np
+from PIL import Image
+from torchvision.transforms import Compose, ToTensor, Resize
+from torchvision.utils import save_image
 import torch
 import torch.backends.cudnn as cudnn
 from src.model import SGNet
@@ -22,14 +23,13 @@ if cuda:
 netG.load_state_dict(torch.load(args.pretrained))
 for param in netG.parameters():
     param.requires_grad = False
-img_ori = cv2.imread(args.imgPath) / 255
-image = cv2.resize(img_ori, (args.loadSize, args.loadSize))
-image = image.transpose(2, 0, 1)
-img = torch.from_numpy(image).float().unsqueeze(0)
-img = img.cuda()
+netG.eval()
+img = Image.open(args.imgPath)
+transform = Compose([
+        Resize(size=args.loadSize, interpolation=Image.BICUBIC),
+        ToTensor(),])
+img_PIL_Tensor = transform(img).unsqueeze(0)
+img = img_PIL_Tensor.cuda()
 x_o1, x_o2, x_o3, g_image, mm = netG(img, masks=None, training=False)
-ndarr = g_image.data.squeeze().float().clamp_(0, 1).cpu().numpy()
-if ndarr.ndim == 3:
-    img = np.transpose(ndarr, (1, 2, 0))
-ndarr = np.uint8((img*255.0).round())
-cv2.imwrite(args.savedPath, ndarr)
+g_image = g_image.data.cpu()
+save_image(g_image, args.savedPath)
