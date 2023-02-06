@@ -1,4 +1,4 @@
-GPU: [1]
+GPU: [0]
 DATA_ROOT: SCUT-EnsText/trainlmdb
 PRETRAINED: ''
 DIS_LR: 0.00001
