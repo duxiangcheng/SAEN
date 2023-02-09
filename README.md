@@ -1,6 +1,6 @@
 # Modeling Stroke Mask for End-to-End Text Erasing
 
-This repository contains official implementation of Modeling Stroke Mask for End-to-End Text Erasing in WACV 2023, by Xiangcheng Du and Zhao Zhou and Yingbin Zheng and Tianlong Ma and Xingjiao Wu and Cheng Jin.
+This repository contains official implementation of Modeling Stroke Mask for End-to-End Text Erasing in WACV 2023.
 
 [Paper](https://openaccess.thecvf.com/content/WACV2023/papers/Du_Modeling_Stroke_Mask_for_End-to-End_Text_Erasing_WACV_2023_paper.pdf) | [Project](https://github.com/duxiangcheng/SAEN)
 
@@ -52,7 +52,7 @@ python demo.py --pretrained "pretrained_model_path" --imgPath "test_img_path" --
 ```
 for examples:
 ```bash
-python demo.py --pretrained pretrained.pth --imgPath examples/1.jpg --savedPath result.jpg
+python demo.py --pretrained pretrained.pth --imgPath samples/1.jpg --savedPath result.jpg
 ```
 
 
@@ -69,7 +69,7 @@ To generate the results of test datasets
 python test.py --dataRoot SCUT-EnsText/testlmdb --batchSize 1 --pretrain "pretrained_model_path"
 ```
 ### Evaluation
-To evaluate the results:
+To evaluate the results and calculate metrics of performance:
 ```bash
 python evaluatuion.py --target_path "results path" --gt_path "ground_truth path"
 ```
